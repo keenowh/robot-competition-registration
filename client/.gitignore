@@ -4,14 +4,21 @@
 /node_modules
 /.pnp
 .pnp.js
+<<<<<<< HEAD
 /public
+=======
+>>>>>>> ff7bf47634e6706d76e0bec9f6b2d9e2bf9e4085
 
 # testing
 /coverage
 
 # production
 /build
+<<<<<<< HEAD
 
+=======
+/public
+>>>>>>> ff7bf47634e6706d76e0bec9f6b2d9e2bf9e4085
 # misc
 .DS_Store
 .env.local

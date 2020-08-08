@@ -4,7 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+<<<<<<< HEAD
 ### `npm start`
+=======
+### `yarn start`
+>>>>>>> ff7bf47634e6706d76e0bec9f6b2d9e2bf9e4085
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,12 +16,20 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+<<<<<<< HEAD
 ### `npm test`
+=======
+### `yarn test`
+>>>>>>> ff7bf47634e6706d76e0bec9f6b2d9e2bf9e4085
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+<<<<<<< HEAD
 ### `npm run build`
+=======
+### `yarn build`
+>>>>>>> ff7bf47634e6706d76e0bec9f6b2d9e2bf9e4085
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -27,7 +39,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+<<<<<<< HEAD
 ### `npm run eject`
+=======
+### `yarn eject`
+>>>>>>> ff7bf47634e6706d76e0bec9f6b2d9e2bf9e4085
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
