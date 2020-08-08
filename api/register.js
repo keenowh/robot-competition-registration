@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
       school: req.body.school,
       coach: req.body.coach,
     };
-
+    console.log(info)
     const response = await pool.query(
       "INSERT INTO competitors (compName, players, school, coach) VALUES ($1, $2, $3, $4) RETURNING *",
       [info.compName, info.players, info.school, info.coach]
