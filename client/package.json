@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -12,7 +14,11 @@
     "@types/react-dom": "^16.9.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^6.3.1",
+    "react-modal": "^3.11.2",
     "react-scripts": "3.4.1",
+    "tailwindcss": "^1.6.2",
+    "twin.macro": "^1.7.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
@@ -23,6 +29,11 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "babelMacros": {
+    "twin": {
+      "config": "./tailwind.config.js"
+    }
   },
   "browserslist": {
     "production": [
@@ -35,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-modal": "^3.10.6"
   }
 }
