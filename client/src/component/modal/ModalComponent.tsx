@@ -1,32 +1,32 @@
-import React, { CSSProperties } from "react";
-import Modal from "react-modal";
+import React from "react";
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
 import tw from "twin.macro";
 import { useForm } from "react-hook-form";
+import "./ModalStyle.css";
 
+// ------------------- Props inteface
 interface Props {
   comp: {
     name: string;
     players: number;
   };
   isOpen: boolean;
+  setModal: any;
 }
 
-const overlayDesign: CSSProperties = {
-  position: "absolute",
-  inset: "4em",
-  border: "1px solid rgb(204, 204, 204)",
-  background: "rgb(255, 255, 255) none repeat scroll 0% 0%",
-  overflow: "auto",
-  borderRadius: "4px",
-  outline: "currentcolor none medium",
-  padding: "20px",
-};
+// ------------- Style Blocks ---------------------
 
-const StyledPlayerInput = tw.input`w-full mb-2 py-2 font-medium bg-gray-200 rounded-lg`;
+const StyledPlayerInput = tw.input`block w-64 mb-2 py-2 font-medium bg-gray-200 rounded-lg`;
 
 const StyledLabel = tw.label`block text-gray-700 text-sm font-bold mb-2`;
 
-const ModalComponent: React.FC<Props> = ({ comp, isOpen }) => {
+const StyledForm = tw.form`w-full`;
+
+const HeaderBlock = tw.h1``;
+// ------------------------------------------------
+
+const ModalComponent: React.FC<Props> = ({ comp, isOpen, setModal }) => {
   const { register, handleSubmit } = useForm();
 
   const playerInput: Array<JSX.Element> = [];
@@ -52,11 +52,17 @@ const ModalComponent: React.FC<Props> = ({ comp, isOpen }) => {
   console.log("rendered");
   return (
     <Modal
-      tw="bg-gray-400"
-      isOpen={isOpen}
-      style={{ overlay: {}, content: overlayDesign }}
+      open={isOpen}
+      center
+      onClose={() => setModal(false)}
+      classNames={{
+        overlay: "customOverlay",
+        modal: "customModal",
+      }}
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <HeaderBlock>Register your team</HeaderBlock>
+      <hr></hr>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
         {playerInput}
         <div>
           <StyledLabel>Coach</StyledLabel>
@@ -76,7 +82,7 @@ const ModalComponent: React.FC<Props> = ({ comp, isOpen }) => {
             ref={register}
           ></StyledPlayerInput>
         </div>
-      </form>
+      </StyledForm>
     </Modal>
   );
 };

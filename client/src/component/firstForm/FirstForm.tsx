@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import tw from "twin.macro";
 import ModalComponent from "../modal/ModalComponent";
-import Modal from "react-modal";
 
 const Block = tw.div`bg-white text-white font-bold rounded-lg border shadow-lg xs:w-9/12 md:max-w-lg`;
 
@@ -48,13 +47,14 @@ const FirstForm = () => {
   const [select, setSelect] = useState({ name: "", players: 2 });
 
   function adjuster(e: any): void {
-    let info: any = competitionData.find((element) => element.name == e);
+    let info: any = competitionData.find((element) => element.name === e);
     setSelect(info);
   }
   function openModal(e: any) {
     e.preventDefault();
     setModalOpen(true);
   }
+  
 
   return (
     <Block>
@@ -83,7 +83,7 @@ const FirstForm = () => {
 
         
 
-        <ModalComponent isOpen={modalisOpen} comp={select} />
+        <ModalComponent isOpen={modalisOpen} setModal={setModalOpen} comp={select} />
       </CompForm>
       <CopyrightBlock>
         &copy;2020 De La Salle Araneta University.<br></br> All rights reserved.
