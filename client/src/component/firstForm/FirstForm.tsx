@@ -21,6 +21,7 @@ const CopyrightBlock = tw.p`text-center px-4 text-gray-500 text-xs`;
 const SubmitButton = tw.button`bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded`;
 
 const competitionData = [
+  { name: "--- Select Competition ---", players: 2 },
   { name: "Line Tracing", players: 2 },
   { name: "A-mazing Challenge JR", players: 2 },
   { name: "A-mazing Challenge SR", players: 2 },
@@ -35,8 +36,9 @@ const competitionData = [
 ];
 
 const CompOptions = competitionData.map((competition, index) => {
+  
   return (
-    <option key={index} value={competition.name}>
+    <option key={index}  value={competition.name}>
       {competition.name}
     </option>
   );
@@ -54,7 +56,6 @@ const FirstForm = () => {
     e.preventDefault();
     setModalOpen(true);
   }
-  
 
   return (
     <Block>
@@ -62,7 +63,7 @@ const FirstForm = () => {
         <CompLabel>State</CompLabel>
         <SelectDiv>
           <SelectInp
-            onChange={(e) => adjuster((e.target as HTMLSelectElement).value)}
+            onClick={(e) => adjuster((e.target as HTMLSelectElement).value)}
           >
             {CompOptions}
           </SelectInp>
@@ -81,9 +82,11 @@ const FirstForm = () => {
         </SelectDiv>
         <SubmitButton onClick={(e) => openModal(e)}>Proceed</SubmitButton>
 
-        
-
-        <ModalComponent isOpen={modalisOpen} setModal={setModalOpen} comp={select} />
+        <ModalComponent
+          isOpen={modalisOpen}
+          setModal={setModalOpen}
+          comp={select}
+        />
       </CompForm>
       <CopyrightBlock>
         &copy;2020 De La Salle Araneta University.<br></br> All rights reserved.

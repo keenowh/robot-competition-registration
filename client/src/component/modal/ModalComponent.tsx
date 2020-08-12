@@ -17,13 +17,15 @@ interface Props {
 
 // ------------- Style Blocks ---------------------
 
-const StyledPlayerInput = tw.input`block w-64 mb-2 py-2 font-medium bg-gray-200 rounded-lg`;
+const StyledPlayerInput = tw.input`block w-64 mb-2 py-2 font-medium bg-gray-200 rounded-lg md:(w-auto)`;
 
 const StyledLabel = tw.label`block text-gray-700 text-sm font-bold mb-2`;
 
-const StyledForm = tw.form`w-full`;
+const StyledForm = tw.form`w-full font-sans md:px-4`;
 
-const HeaderBlock = tw.h1``;
+const HeaderBlock = tw.h4`font-sans font-semibold mb-0`;
+
+const SubHeaderBlock = tw.h5`font-sans mt-0`;
 // ------------------------------------------------
 
 const ModalComponent: React.FC<Props> = ({ comp, isOpen, setModal }) => {
@@ -33,10 +35,9 @@ const ModalComponent: React.FC<Props> = ({ comp, isOpen, setModal }) => {
 
   for (let i = 1; i < comp["players"] + 1; i++) {
     playerInput.push(
-      <div>
+      <div key={i}>
         <StyledLabel>Player {i}</StyledLabel>
         <StyledPlayerInput
-          key={i}
           type="text"
           placeholder={`Player ${i}`}
           name={`player${i}`}
@@ -61,7 +62,8 @@ const ModalComponent: React.FC<Props> = ({ comp, isOpen, setModal }) => {
       }}
     >
       <HeaderBlock>Register your team</HeaderBlock>
-      <hr></hr>
+      <SubHeaderBlock>{comp["name"]}</SubHeaderBlock>
+      <hr />
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         {playerInput}
         <div>

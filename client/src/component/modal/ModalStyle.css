@@ -2,9 +2,16 @@
   background: rgba(6, 38, 51, 0.7);
 }
 .customModal {
-  background: #b2dbbf;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  background: white;
   width: 100%;
   max-width: 16rem;
   border-radius: 1em;
   padding: 1em;
+}
+
+@media (min-width: 768px) {
+  .customModal {
+    max-width: 30rem;
+  }
 }
