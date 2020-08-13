@@ -17,15 +17,17 @@ interface Props {
 
 // ------------- Style Blocks ---------------------
 
-const StyledPlayerInput = tw.input`block w-64 mb-2 py-2 font-medium bg-gray-200 rounded-lg md:(w-auto)`;
+const StyledPlayerInput = tw.input`w-full mb-2 py-2 font-medium bg-gray-200 rounded-lg`;
 
 const StyledLabel = tw.label`block text-gray-700 text-sm font-bold mb-2`;
 
-const StyledForm = tw.form`w-full font-sans md:px-4`;
+const StyledForm = tw.form`w-full flex flex-col self-center  font-sans`;
 
 const HeaderBlock = tw.h4`font-sans font-semibold mb-0`;
 
 const SubHeaderBlock = tw.h5`font-sans mt-0`;
+
+const InputWrap = tw.div`self-center w-9/12`;
 // ------------------------------------------------
 
 const ModalComponent: React.FC<Props> = ({ comp, isOpen, setModal }) => {
@@ -35,7 +37,7 @@ const ModalComponent: React.FC<Props> = ({ comp, isOpen, setModal }) => {
 
   for (let i = 1; i < comp["players"] + 1; i++) {
     playerInput.push(
-      <div key={i}>
+      <InputWrap key={i}>
         <StyledLabel>Player {i}</StyledLabel>
         <StyledPlayerInput
           type="text"
@@ -43,7 +45,7 @@ const ModalComponent: React.FC<Props> = ({ comp, isOpen, setModal }) => {
           name={`player${i}`}
           ref={register}
         />
-      </div>
+      </InputWrap>
     );
   }
 
@@ -66,7 +68,7 @@ const ModalComponent: React.FC<Props> = ({ comp, isOpen, setModal }) => {
       <hr />
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         {playerInput}
-        <div>
+        <InputWrap>
           <StyledLabel>Coach</StyledLabel>
           <StyledPlayerInput
             type="text"
@@ -74,8 +76,8 @@ const ModalComponent: React.FC<Props> = ({ comp, isOpen, setModal }) => {
             name={"coach"}
             ref={register}
           ></StyledPlayerInput>
-        </div>
-        <div>
+        </InputWrap>
+        <InputWrap>
           <StyledLabel>School</StyledLabel>
           <StyledPlayerInput
             type="text"
@@ -83,7 +85,7 @@ const ModalComponent: React.FC<Props> = ({ comp, isOpen, setModal }) => {
             name={"school"}
             ref={register}
           ></StyledPlayerInput>
-        </div>
+        </InputWrap>
       </StyledForm>
     </Modal>
   );
