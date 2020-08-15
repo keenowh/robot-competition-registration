@@ -15,3 +15,9 @@
     max-width: 30rem;
   }
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

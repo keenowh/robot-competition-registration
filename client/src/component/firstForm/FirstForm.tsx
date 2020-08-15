@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import tw from "twin.macro";
 import ModalComponent from "../modal/ModalComponent";
 
-const Block = tw.div`bg-white text-white font-bold rounded-lg border shadow-lg xs:w-9/12 md:max-w-lg`;
+
+const Block = tw.div`bg-white text-white font-bold rounded-lg border shadow-lg xs:w-9/12 md:max-w-md`;
 
 const CompForm = tw.form`xs:p-4 md:px-8`;
 
-const CompLabel = tw.label`uppercase tracking-wide text-gray-700 text-sm font-bold mb-2`;
+const CompLabel = tw.label`block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2`;
 
-const SelectDiv = tw.div`relative`;
+const SelectDiv = tw.div`relative mb-4`;
 
 const SelectInp = tw.select`bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500`;
 
@@ -36,9 +37,8 @@ const competitionData = [
 ];
 
 const CompOptions = competitionData.map((competition, index) => {
-  
   return (
-    <option key={index}  value={competition.name}>
+    <option key={index} value={competition.name}>
       {competition.name}
     </option>
   );
@@ -60,7 +60,7 @@ const FirstForm = () => {
   return (
     <Block>
       <CompForm>
-        <CompLabel>State</CompLabel>
+          <CompLabel>State</CompLabel>
         <SelectDiv>
           <SelectInp
             onClick={(e) => adjuster((e.target as HTMLSelectElement).value)}
