@@ -37,14 +37,15 @@ router.post("/", async (req, res) => {
       school: req.body.school,
       coach: req.body.coach,
     };
-    console.log(info)
     const response = await pool.query(
       "INSERT INTO competitors (compName, players, school, coach) VALUES ($1, $2, $3, $4) RETURNING *",
       [info.compName, info.players, info.school, info.coach]
     );
     redis.del("competitors");
+    console.log(response.rows);
     res.status(200).json(response.rows);
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });

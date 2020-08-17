@@ -15,7 +15,7 @@ const registerCompetition = (data, comp) => {
   };
 
   // console.log(toSubmit);
-  axios.post("/register", toSubmit);
+  axios.post("register", toSubmit);
 };
 
 export default registerCompetition;
