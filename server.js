@@ -25,10 +25,11 @@ app.use(bodyParser.json());
 //Routes for API
 app.use("/register", require("./api/register"));
 
+console.log(process.env.NODE_ENV);
 // For server in production
 if (process.env.NODE_ENV === "production") {
   // to serve static content
-  app.use(express.static(path.join(__dirname, "client/public")));
+  app.use(express.static(path.join(__dirname, "client/build")));
 }
 
 app.listen(PORT, (err) => {
