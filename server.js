@@ -28,7 +28,7 @@ app.use("/register", require("./api/register"));
 // For server in production
 if (process.env.NODE_ENV === "production") {
   // to serve static content
-  app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static(path.join(__dirname, "client/public")));
 }
 
 app.listen(PORT, (err) => {
