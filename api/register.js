@@ -45,7 +45,6 @@ router.post("/", async (req, res) => {
     console.log(response.rows);
     res.status(200).json(response.rows);
   } catch (err) {
-    console.log(err)
     res.status(500).json(err);
   }
 });
