@@ -18,10 +18,13 @@
     "express": "^4.17.1",
     "ioredis": "^4.17.3",
     "pg": "^8.3.0",
-    "twin.macro": "^1.7.0"
+    "twin.macro": "^1.7.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.4"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }

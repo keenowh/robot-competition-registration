@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
   );
   next();
 });
-app.use(morgan("dev"));
+app.use(morgan("tiny"));
 app.use(express.json());
 app.use(bodyParser.json());
 
