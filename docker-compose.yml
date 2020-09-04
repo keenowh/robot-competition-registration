@@ -1,0 +1,24 @@
+version: "3.5"
+
+volumes:
+  postgres_data: {}
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./docker-compose/backend/Dockerfile
+    image: api
+    depends_on:
+      - postgres
+    volumes:
+      - ./api:/api
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./docker_compose/postgres/Dockerfile
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file: ./common.env
